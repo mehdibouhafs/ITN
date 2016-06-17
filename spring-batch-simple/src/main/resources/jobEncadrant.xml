@@ -40,4 +40,13 @@
 		</batch:step>
 	</batch:job>
 	
+	<bean id="runScheduler" class="fr.itn.traning.RunScheduler" />
+	<!-- Run every 5 seconds -->
+	<task:scheduled-tasks>
+		<!-- <task:scheduled ref="runScheduler" method="run" fixed-delay="5000" 
+			/> -->
+		<task:scheduled ref="runScheduler" method="run"
+			cron="*/5 * * * * *" />
+	</task:scheduled-tasks>
+	
 </beans>
